@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Random Number Generator</string>
+
+    <string name="to">to</string>
+
+    <string name="settings_first_choice_key" translatable="false">first_choice</string>
+    <string name="settings_first_choice_default" translatable="false">1</string>
+
+    <string name="settings_second_choice_key" translatable="false">second_choice</string>
+    <string name="settings_second_choice_default" translatable="false">10</string>
+
+    <string name="settings_random_number_key" translatable="false">random_number</string>
+    <string name="settings_random_number_default" translatable="false">0</string>
+
 </resources>

@@ -1,69 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/first_number_choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal|numberSigned"
-        android:selectAllOnFocus="true"
-        android:text="1"
-        app:layout_constraintBottom_toTopOf="@id/random_number_display"
-        app:layout_constraintRight_toLeftOf="@id/dash"
-        app:layout_constraintTop_toTopOf="@id/dash" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/dash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="to"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/random_number_display"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:id="@+id/previous_number5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#dedede"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@id/previous_number4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    <EditText
-        android:id="@+id/second_number_choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal|numberSigned"
-        android:selectAllOnFocus="true"
-        android:text="10"
-        app:layout_constraintBottom_toTopOf="@id/random_number_display"
-        app:layout_constraintLeft_toRightOf="@id/dash"
-        app:layout_constraintTop_toTopOf="@id/dash" />
+        <TextView
+            android:id="@+id/previous_number4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#c2c2c2"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/previous_number3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:id="@+id/random_number_display"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="0"
-        android:textSize="108sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/previous_number3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#979797"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/previous_number2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
-        android:id="@+id/new_number_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:padding="8dp"
-        android:text="New Number"
-        android:textColor="@android:color/white"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/random_number_display" />
+        <TextView
+            android:id="@+id/previous_number2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#818181"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@id/previous_number"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/previous_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#606060"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toTopOf="@id/random_number_display"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/random_number_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@android:color/black"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/new_number_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/colorAccent"
+            android:padding="8dp"
+            android:text="New Number"
+            android:textColor="@android:color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/random_number_display" />
+
+        <EditText
+            android:id="@+id/first_number_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal|numberSigned"
+            android:selectAllOnFocus="true"
+            app:layout_constraintRight_toLeftOf="@id/dash"
+            app:layout_constraintTop_toBottomOf="@id/new_number_button"
+            app:layout_constraintTop_toTopOf="@id/dash" />
+
+        <TextView
+            android:id="@+id/dash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/to"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/new_number_button" />
+
+        <EditText
+            android:id="@+id/second_number_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal|numberSigned"
+            android:selectAllOnFocus="true"
+            app:layout_constraintLeft_toRightOf="@id/dash"
+            app:layout_constraintTop_toBottomOf="@id/new_number_button"
+            app:layout_constraintTop_toTopOf="@id/dash" />
+
+    </android.support.constraint.ConstraintLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -20,39 +20,38 @@ public class MainActivity extends AppCompatActivity {
     private int firstChoice;
     private int secondChoice;
 
-    private EditText firstNumberChoiceEditText;
-    private EditText secondNumberChoiceEditText;
-
     private int previousNumber;
     private int previousNumber2;
     private int previousNumber3;
     private int previousNumber4;
-    private int previousNumber5;
+
+    private EditText firstNumberChoiceEditText;
+    private EditText secondNumberChoiceEditText;
 
     private TextView previousNumberTextView;
     private TextView previousNumber2TextView;
     private TextView previousNumber3TextView;
     private TextView previousNumber4TextView;
-    private TextView previousNumber5TextView;
+
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //find TextViews
+        //Find TextViews
         previousNumberTextView = (TextView) findViewById(R.id.previous_number);
         previousNumber2TextView = (TextView) findViewById(R.id.previous_number2);
         previousNumber3TextView = (TextView) findViewById(R.id.previous_number3);
         previousNumber4TextView = (TextView) findViewById(R.id.previous_number4);
-        previousNumber5TextView = (TextView) findViewById(R.id.previous_number5);
 
         final TextView randomNumberDisplayTextView = (TextView) findViewById(R.id.random_number_display);
         firstNumberChoiceEditText = (EditText) findViewById(R.id.first_number_choice);
         secondNumberChoiceEditText = (EditText) findViewById(R.id.second_number_choice);
 
-        //set variable values from Shared Preferences
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        //Set variable values from Shared Preferences
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         randomNumber = Integer.parseInt(sharedPreferences.getString(
                 getString(R.string.settings_random_number_key),
@@ -66,19 +65,31 @@ public class MainActivity extends AppCompatActivity {
                 getString(R.string.settings_second_choice_key),
                 getString(R.string.settings_second_choice_default)));
 
-        previousNumber = Integer.parseInt(previousNumberTextView.getText().toString());
-        previousNumber2 = Integer.parseInt(previousNumber2TextView.getText().toString());
-        previousNumber3 = Integer.parseInt(previousNumber3TextView.getText().toString());
-        previousNumber4 = Integer.parseInt(previousNumber4TextView.getText().toString());
-        previousNumber5 = Integer.parseInt(previousNumber5TextView.getText().toString());
+        previousNumber = Integer.parseInt(sharedPreferences.getString(
+                getString(R.string.settings_previous_number_key),
+                getString(R.string.settings_previous_number_default)));
+        previousNumber2 = Integer.parseInt(sharedPreferences.getString(
+                getString(R.string.settings_previous_number2_key),
+                getString(R.string.settings_previous_number2_default)));
+        previousNumber3 = Integer.parseInt(sharedPreferences.getString(
+                getString(R.string.settings_previous_number3_key),
+                getString(R.string.settings_previous_number3_default)));
+        previousNumber4 = Integer.parseInt(sharedPreferences.getString(
+                getString(R.string.settings_previous_number4_key),
+                getString(R.string.settings_previous_number4_default)));
 
-        //display variables
+        //Display variables
         randomNumberDisplayTextView.setText(String.valueOf(randomNumber));
 
         firstNumberChoiceEditText.setText(String.valueOf(firstChoice));
         secondNumberChoiceEditText.setText(String.valueOf(secondChoice));
 
-        //add TextWatchers
+        previousNumberTextView.setText(String.valueOf(previousNumber));
+        previousNumber2TextView.setText(String.valueOf(previousNumber2));
+        previousNumber3TextView.setText(String.valueOf(previousNumber3));
+        previousNumber4TextView.setText(String.valueOf(previousNumber4));
+
+        //Add TextWatchers
         firstNumberChoiceEditText.addTextChangedListener(firstChoiceTextWatcher);
         secondNumberChoiceEditText.addTextChangedListener(secondChoiceTextWatcher);
 
@@ -88,22 +99,35 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //update previous numbers
-                previousNumber5 = previousNumber4;
+                //Update previous numbers
                 previousNumber4 = previousNumber3;
                 previousNumber3 = previousNumber2;
                 previousNumber2 = previousNumber;
                 previousNumber = randomNumber;
 
-                //generate new random number
+                //Generate new random number
                 randomNumber = generateRandomNumber(firstChoice, secondChoice);
 
+                //Display new numbers
                 randomNumberDisplayTextView.setText(String.valueOf(randomNumber));
                 previousNumberTextView.setText(String.valueOf(previousNumber));
                 previousNumber2TextView.setText(String.valueOf(previousNumber2));
                 previousNumber3TextView.setText(String.valueOf(previousNumber3));
                 previousNumber4TextView.setText(String.valueOf(previousNumber4));
-                previousNumber5TextView.setText(String.valueOf(previousNumber5));
+
+                //Save numbers to SharedPreferences
+                sharedPreferences.edit()
+                        .putString(getString(R.string.settings_random_number_key),
+                                String.valueOf(randomNumber))
+                        .putString(getString(R.string.settings_previous_number_key),
+                                String.valueOf(previousNumber))
+                        .putString(getString(R.string.settings_previous_number2_key),
+                                String.valueOf(previousNumber2))
+                        .putString(getString(R.string.settings_previous_number3_key),
+                                String.valueOf(previousNumber3))
+                        .putString(getString(R.string.settings_previous_number4_key),
+                                String.valueOf(previousNumber4))
+                        .apply();
             }
         });
     }
@@ -131,8 +155,12 @@ public class MainActivity extends AppCompatActivity {
         public void afterTextChanged(Editable editable) {
             try {
                 firstChoice = Integer.parseInt(firstNumberChoiceEditText.getText().toString());
+                sharedPreferences.edit()
+                        .putString(getString(R.string.settings_first_choice_key),
+                                String.valueOf(firstChoice))
+                        .apply();
             } catch (NumberFormatException e) {
-                //this will catch the "-" when a negative number is entered
+                //This will catch the "-" when a negative number is entered
             }
         }
     };
@@ -150,8 +178,12 @@ public class MainActivity extends AppCompatActivity {
         public void afterTextChanged(Editable editable) {
             try {
                 secondChoice = Integer.parseInt(secondNumberChoiceEditText.getText().toString());
+                sharedPreferences.edit()
+                        .putString(getString(R.string.settings_second_choice_key),
+                                String.valueOf(secondChoice))
+                        .apply();
             } catch (NumberFormatException e) {
-                //this will catch the "-" when a negative number is entered
+                //This will catch the "-" when a negative number is entered
             }
         }
     };

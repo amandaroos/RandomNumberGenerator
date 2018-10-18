@@ -4,30 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/previous_number5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textColor="#dedede"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toTopOf="@id/previous_number4"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <TextView
             android:id="@+id/previous_number4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:paddingTop="8dp"
             android:textColor="#c2c2c2"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/previous_number3"
@@ -38,7 +28,6 @@
             android:id="@+id/previous_number3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:textColor="#979797"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/previous_number2"
@@ -49,7 +38,6 @@
             android:id="@+id/previous_number2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:textColor="#818181"
             android:textSize="34sp"
             app:layout_constraintBottom_toTopOf="@id/previous_number"
@@ -60,7 +48,6 @@
             android:id="@+id/previous_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:textColor="#606060"
             android:textSize="48sp"
             app:layout_constraintBottom_toTopOf="@id/random_number_display"
@@ -71,7 +58,6 @@
             android:id="@+id/random_number_display"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
             android:textColor="@android:color/black"
             android:textSize="60sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -86,7 +72,7 @@
             android:layout_margin="16dp"
             android:background="@color/colorAccent"
             android:padding="8dp"
-            android:text="New Number"
+            android:text="@string/new_number"
             android:textColor="@android:color/white"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -125,6 +111,4 @@
             app:layout_constraintTop_toTopOf="@id/dash" />
 
     </android.support.constraint.ConstraintLayout>
-
-
 </ScrollView>

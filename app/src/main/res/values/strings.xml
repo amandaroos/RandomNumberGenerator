@@ -3,6 +3,7 @@
 
     <string name="to">to</string>
     <string name="new_number">New Number</string>
+    <string name="default_number">0</string>
 
     <!--Strings for SharedPreferences-->
     <string name="settings_random_number_key" translatable="false">random_number</string>
@@ -22,4 +23,6 @@
     <string name="settings_previous_number4_key" translatable="false">previous_number4</string>
     <string name="settings_previous_number4_default" translatable="false">0</string>
 
+    <!--Error message-->
+    <string name="error_message_invalid_number"> Error: Invalid number</string>
 </resources>

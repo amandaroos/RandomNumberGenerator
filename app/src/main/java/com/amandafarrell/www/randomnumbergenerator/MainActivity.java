@@ -10,12 +10,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean ignoreNextTextChange = false;
+
     private int randomNumber;
+
+    private String firstChoiceString;
+    private String secondChoiceString;
 
     private int firstChoice;
     private int secondChoice;
@@ -41,14 +47,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Find TextViews
-        previousNumberTextView = (TextView) findViewById(R.id.previous_number);
-        previousNumber2TextView = (TextView) findViewById(R.id.previous_number2);
-        previousNumber3TextView = (TextView) findViewById(R.id.previous_number3);
-        previousNumber4TextView = (TextView) findViewById(R.id.previous_number4);
+        previousNumberTextView = findViewById(R.id.previous_number);
+        previousNumber2TextView = findViewById(R.id.previous_number2);
+        previousNumber3TextView = findViewById(R.id.previous_number3);
+        previousNumber4TextView = findViewById(R.id.previous_number4);
 
-        final TextView randomNumberDisplayTextView = (TextView) findViewById(R.id.random_number_display);
-        firstNumberChoiceEditText = (EditText) findViewById(R.id.first_number_choice);
-        secondNumberChoiceEditText = (EditText) findViewById(R.id.second_number_choice);
+        final TextView randomNumberDisplayTextView = findViewById(R.id.random_number_display);
+        firstNumberChoiceEditText = findViewById(R.id.first_number_choice);
+        secondNumberChoiceEditText = findViewById(R.id.second_number_choice);
 
         //Set variable values from Shared Preferences
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -94,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         secondNumberChoiceEditText.addTextChangedListener(secondChoiceTextWatcher);
 
         //Generate a new random number between the first and second number choices
-        Button newNumberButton = (Button) findViewById(R.id.new_number_button);
+        Button newNumberButton = findViewById(R.id.new_number_button);
         newNumberButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,14 +159,41 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            try {
-                firstChoice = Integer.parseInt(firstNumberChoiceEditText.getText().toString());
+
+            if (ignoreNextTextChange) {
+                ignoreNextTextChange = false;
+                return;
+            } else {
+                ignoreNextTextChange = true;
+            }
+
+            firstChoiceString = firstNumberChoiceEditText.getText().toString();
+            //remove any leading zeroes
+            if (firstChoiceString.length() > 1) {
+                firstChoiceString = firstChoiceString.replaceFirst("^0", "");
+            }
+
+            if (isParsableInteger(firstChoiceString) == 1){
+                firstChoice = Integer.parseInt(firstChoiceString);
                 sharedPreferences.edit()
-                        .putString(getString(R.string.settings_first_choice_key),
-                                String.valueOf(firstChoice))
+                        .putString(getString(R.string.settings_first_choice_key), firstChoiceString)
                         .apply();
-            } catch (NumberFormatException e) {
-                //This will catch the "-" when a negative number is entered
+
+                //This redundantly sets the text so that the textWatcher is called and keeps the
+                //boolean ignoreNextTextChange consistent
+                firstNumberChoiceEditText.setText(firstChoiceString);
+                firstNumberChoiceEditText.setSelection(firstChoiceString.length());
+            } else if(isParsableInteger(firstChoiceString) == 0) {
+                //This redundantly sets the text so that the textWatcher is called and keeps the
+                //boolean ignoreNextTextChange consistent
+                firstNumberChoiceEditText.setText(firstChoiceString);
+                firstNumberChoiceEditText.setSelection(firstChoiceString.length());
+            }
+            else {
+                Toast.makeText(getBaseContext(), R.string.error_message_invalid_number,
+                        Toast.LENGTH_SHORT).show();
+                firstNumberChoiceEditText.setText(R.string.default_number);
+                firstNumberChoiceEditText.setSelection(getString(R.string.default_number).length());
             }
         }
     };
@@ -176,15 +209,61 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable editable) {
-            try {
-                secondChoice = Integer.parseInt(secondNumberChoiceEditText.getText().toString());
+
+            if (ignoreNextTextChange) {
+                ignoreNextTextChange = false;
+                return;
+            } else {
+                ignoreNextTextChange = true;
+            }
+
+            secondChoiceString = secondNumberChoiceEditText.getText().toString();
+            //remove any leading zeroes
+            if (secondChoiceString.length() > 1) {
+                secondChoiceString = secondChoiceString.replaceFirst("^0", "");
+            }
+
+            if (isParsableInteger(secondChoiceString) == 1){
+                secondChoice = Integer.parseInt(secondChoiceString);
                 sharedPreferences.edit()
-                        .putString(getString(R.string.settings_second_choice_key),
-                                String.valueOf(secondChoice))
+                        .putString(getString(R.string.settings_second_choice_key),secondChoiceString)
                         .apply();
-            } catch (NumberFormatException e) {
-                //This will catch the "-" when a negative number is entered
+
+                //This redundantly sets the text so that the textWatcher is called and keeps the
+                //boolean ignoreNextTextChange consistent
+                secondNumberChoiceEditText.setText(secondChoiceString);
+                secondNumberChoiceEditText.setSelection(secondChoiceString.length());
+            } else if (isParsableInteger(secondChoiceString) == 0){
+                //This redundantly sets the text so that the textWatcher is called and keeps the
+                //boolean ignoreNextTextChange consistent
+                secondNumberChoiceEditText.setText(secondChoiceString);
+                secondNumberChoiceEditText.setSelection(secondChoiceString.length());
+            }
+            else {
+                Toast.makeText(getBaseContext(), R.string.error_message_invalid_number,
+                        Toast.LENGTH_SHORT).show();
+                secondNumberChoiceEditText.setText(R.string.default_number);
+                secondNumberChoiceEditText.setSelection(getString(R.string.default_number).length());
             }
         }
     };
+
+    /**
+     *
+     * @param numberString string to parse as an int
+     * @return 1 is the String is parsable as an int, -1 if it is not, and 0 for the special
+     * case when a negative number is being entered
+     */
+    public int isParsableInteger(String numberString){
+        if (numberString.equals("-")){
+            return 0;
+        }
+
+        try {
+            int test = Integer.parseInt(numberString);
+        } catch (NumberFormatException e) {
+            return -1;
+        }
+        return 1;
+    }
 }

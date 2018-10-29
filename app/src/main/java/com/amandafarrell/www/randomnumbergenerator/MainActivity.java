@@ -105,6 +105,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                firstChoiceString = firstNumberChoiceEditText.getText().toString();
+                secondChoiceString = secondNumberChoiceEditText.getText().toString();
+                if (firstChoiceString.isEmpty() ||
+                        secondChoiceString.isEmpty() ||
+                        firstChoiceString.equals("-") ||
+                        secondChoiceString.equals("-")) {
+                    Toast.makeText(getBaseContext(), R.string.error_message_invalid_number,
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 //Update previous numbers
                 previousNumber4 = previousNumber3;
                 previousNumber3 = previousNumber2;
@@ -252,10 +263,10 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param numberString string to parse as an int
      * @return 1 is the String is parsable as an int, -1 if it is not, and 0 for the special
-     * case when a negative number is being entered
+     * cases when a negative number is being entered or no number is entered
      */
     public int isParsableInteger(String numberString){
-        if (numberString.equals("-")){
+        if (numberString.equals("-") || numberString.isEmpty()){
             return 0;
         }
 

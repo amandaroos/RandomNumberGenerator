@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Números Aleatorios</string>
+    <string name="to">a</string>
+    <string name="new_number">Nuevo Número</string>
+    <string name="error_message_invalid_number">Error: número inválido</string>
+</resources>

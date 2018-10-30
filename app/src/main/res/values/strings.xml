@@ -3,7 +3,7 @@
 
     <string name="to">to</string>
     <string name="new_number">New Number</string>
-    <string name="default_number">0</string>
+    <string name="default_number" translatable="false">0</string>
 
     <!--Strings for SharedPreferences-->
     <string name="settings_random_number_key" translatable="false">random_number</string>

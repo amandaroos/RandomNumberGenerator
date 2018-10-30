@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Willekeurige Nommer</string>
+    <string name="to">tot</string>
+    <string name="new_number">Nuwe Nommer</string>
+    <string name="error_message_invalid_number">Fout: Ongeldige nommer</string>
+</resources>

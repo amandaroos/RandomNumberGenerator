@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Liczba Losowa</string>
+    <string name="to">do</string>
+    <string name="new_number">Nowy numer</string>
+    <string name="error_message_invalid_number">Błąd: nieprawidłowy numer</string>
+</resources>

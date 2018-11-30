@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">" Zufallszahl"</string>
+    <string name="app_name">Zufallszahl</string>
     <string name="error_message_invalid_number">" Fehler: Ungültige Nummer"</string>
     <string name="new_number">Neue Nummer</string>
     <string name="to">zu</string>

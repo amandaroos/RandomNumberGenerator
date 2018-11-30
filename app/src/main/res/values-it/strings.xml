@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">" Numero Casuale"</string>
+    <string name="app_name">Numero Casuale</string>
     <string name="to">a</string>
     <string name="new_number">Nuovo Numero</string>
     <string name="error_message_invalid_number">" Errore: numero non valido"</string>

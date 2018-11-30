@@ -203,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
             else {
                 Toast.makeText(getBaseContext(), R.string.error_message_invalid_number,
                         Toast.LENGTH_SHORT).show();
+                firstChoice = 0;
                 firstNumberChoiceEditText.setText(R.string.default_number);
                 firstNumberChoiceEditText.setSelection(getString(R.string.default_number).length());
             }
@@ -253,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
             else {
                 Toast.makeText(getBaseContext(), R.string.error_message_invalid_number,
                         Toast.LENGTH_SHORT).show();
+                secondChoice = 0;
                 secondNumberChoiceEditText.setText(R.string.default_number);
                 secondNumberChoiceEditText.setSelection(getString(R.string.default_number).length());
             }

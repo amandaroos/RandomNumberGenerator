@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Generátor náhodných čísel</string>
+    <string name="error_message_invalid_number">Chyba: Neplatné číslo</string>
+    <string name="new_number">Nové číslo</string>
+    <string name="to">na</string>
+    <string name="action_donate">Přispějte vývojáři</string>
+    <string name="donate_title">Darovat</string>
+    <string name="donate_greeting">Ahoj!</string>
+    <string name="donate_message">Jmenuji se Amanda. Pokud se vám líbí tato aplikace, kterou jsem vyvinul, prosím, zvažte nákup mé aplikace dar. Dárcovství aplikace nic neudělá, ale váš dar mi ukáže, že můj čas strávený vyvíjením bezplatných aplikací není oceněn. Dík!</string>
+    <string name="button_donate">Získat ji na Google Play</string>
+</resources>

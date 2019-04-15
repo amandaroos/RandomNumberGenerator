@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Generator de numere aleatoare</string>
+    <string name="error_message_invalid_number">Eroare: Număr nevalid</string>
+    <string name="new_number">Numar nou</string>
+    <string name="to">la</string>
+    <string name="action_donate">Donați dezvoltatorului</string>
+    <string name="donate_title">Dona</string>
+    <string name="donate_greeting">Salut!</string>
+    <string name="donate_message">Numele meu este Amanda. Dacă vă bucurați de această aplicație pe care am dezvoltat-o, vă recomandăm să achiziționați aplicația mea de donare. Aplicația de donare nu face nimic, dar donarea dvs. îmi va arăta că timpul petrecut pentru dezvoltarea gratuită a aplicațiilor fără anunțuri este apreciat. Mulțumiri!</string>
+    <string name="button_donate">Obțineți-o pe Google Play</string>
+</resources>

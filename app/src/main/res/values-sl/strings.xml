@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Generator naključnih števil</string>
+    <string name="error_message_invalid_number">Napaka: Neveljavna številka</string>
+    <string name="new_number">Nova številka</string>
+    <string name="to">do</string>
+    <string name="action_donate">Donirajte razvijalcu</string>
+    <string name="donate_title">Donirajte</string>
+    <string name="donate_greeting">Zdravo!</string>
+    <string name="donate_message">Moje ime je Amanda. Če uživate v tej aplikaciji, ki sem jo razvil, razmislite o nakupu moje aplikacije za darovanje. Aplikacija za darovanje ne naredi ničesar, toda vaša donacija mi bo pokazala, da me ceni čas, porabljen za razvoj brezplačnih aplikacij brez oglasov. Hvala!</string>
+    <string name="button_donate">Prenesite ga v Google Play</string>
+</resources>

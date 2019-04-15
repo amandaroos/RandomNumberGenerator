@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Generator Nombor Rawak</string>
+    <string name="error_message_invalid_number">Ralat: Nombor tidak sah</string>
+    <string name="new_number">Nombor Baru</string>
+    <string name="to">kepada</string>
+    <string name="action_donate">Dermakan kepada Pemaju</string>
+    <string name="donate_title">Dermakan</string>
+    <string name="donate_greeting">Hello!</string>
+    <string name="donate_message">Nama saya Amanda. Jika anda menikmati aplikasi ini saya maju, sila pertimbangkan untuk membeli aplikasi derma saya. Aplikasi derma tidak melakukan apa-apa, tetapi derma anda akan menunjukkan kepada saya bahawa masa saya dihabiskan untuk membangunkan aplikasi percuma, tidak ada iklan yang dihargai. Terima kasih!</string>
+    <string name="button_donate">Dapatkannya di Google Play</string>
+</resources>

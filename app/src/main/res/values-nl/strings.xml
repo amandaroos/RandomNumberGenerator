@@ -4,4 +4,9 @@
     <string name="error_message_invalid_number">" Fout: ongeldig nummer"</string>
     <string name="new_number">Nieuw Nummer</string>
     <string name="to">tot</string>
+    <string name="action_donate">Doneer aan ontwikkelaar</string>
+    <string name="donate_title">schenken</string>
+    <string name="donate_greeting">Hallo!</string>
+    <string name="donate_message">Jeg hedder Amanda. Hvis du nyder denne app, jeg har udviklet, kan du overveje at købe min donationsapp. Donation-appen gør ikke noget, men din donation vil vise mig, at min tid til at udvikle gratis apps med ingen annoncer er værdsat. Tak!</string>
+    <string name="button_donate">Download het op Google Play</string>
 </resources>

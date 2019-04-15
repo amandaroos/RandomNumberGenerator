@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Rastgele numara üreticisi</string>
+    <string name="error_message_invalid_number">Hata: Geçersiz numara</string>
+    <string name="new_number">Yeni numara</string>
+    <string name="to">için</string>
+    <string name="action_donate">Geliştiriciye Bağış Yap</string>
+    <string name="donate_title">bağışlamak</string>
+    <string name="donate_greeting">Merhaba!</string>
+    <string name="donate_message">Benim adım Amanda. Geliştirdiğim bu uygulamayı beğeniyorsanız, lütfen bağış uygulamamı satın almayı düşünün. Bağış uygulaması hiçbir şey yapmıyor, ancak bağışınız bana ücretsiz, reklamsız uygulamaları geliştirmek için harcadığım zamanın takdir edildiğini gösterecek. Teşekkürler!</string>
+    <string name="button_donate">Google Play\'den indirin</string>
+</resources>

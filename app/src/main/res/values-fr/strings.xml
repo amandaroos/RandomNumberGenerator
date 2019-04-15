@@ -4,4 +4,9 @@
     <string name="to">à</string>
     <string name="new_number">Nouveau Numéro</string>
     <string name="error_message_invalid_number">Erreur: numéro invalide</string>
+    <string name="action_donate">Faire un don au développeur</string>
+    <string name="donate_title">Faire un don</string>
+    <string name="donate_greeting">Salut!</string>
+    <string name="donate_message">Mon nom est Amanda. Si vous appréciez cette application que j\'ai développée, pensez à acheter mon application de donation. L\'application de don ne fait rien, mais votre don me montrera que mon temps passé à développer des applications gratuites sans annonces est apprécié. Merci!</string>
+    <string name="button_donate">Obtenez le sur Google Play</string>
 </resources>

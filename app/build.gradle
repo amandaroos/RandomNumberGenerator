@@ -6,8 +6,8 @@ android {
         applicationId "com.amandafarrell.www.randomnumbergenerator"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 3
-        versionName "Random Number Generator 1.1"
+        versionCode 4
+        versionName "Random Number Generator 1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
